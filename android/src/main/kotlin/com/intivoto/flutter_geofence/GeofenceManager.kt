@@ -26,7 +26,7 @@ data class GeoRegion(
         val events: List<GeoEvent>
 )
 
-fun GeoRegion.serialized(): Map<*, *> {
+fun GeoRegion.serialized(): Map<String, Any?> {
     return hashMapOf(
         "id" to id,
         "radius" to radius,
@@ -115,7 +115,7 @@ class GeofenceManager(context: Context,
     private fun refreshLocation() {
         val locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
-                locationUpdate(locationResult!!.lastLocation!!)
+                locationResult.lastLocation?.let { locationUpdate(it) }
             }
         }
 
@@ -139,7 +139,7 @@ class GeofenceManager(context: Context,
     private val backgroundLocationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             locationResult ?: return
-            backgroundUpdate(locationResult!!.lastLocation!!)
+            locationResult.lastLocation?.let { backgroundUpdate(it) }
         }
     }
 
