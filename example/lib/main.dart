@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
         body: ListView(
           children: <Widget>[
             Text('Running on: $_platformVersion\n'),
-            RaisedButton(
+            ElevatedButton(
               child: Text("Add region"),
               onPressed: () {
                 Geolocation location = Geolocation(
@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                 });
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("Add neighbour region"),
               onPressed: () {
                 Geolocation location = Geolocation(
@@ -98,19 +98,19 @@ class _MyAppState extends State<MyApp> {
                 });
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("Remove regions"),
               onPressed: () {
                 Geofence.removeAllGeolocations();
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("Request Permissions"),
               onPressed: () {
                 Geofence.requestPermissions();
               },
             ),
-            RaisedButton(
+            ElevatedButton(
                 child: Text("get user location"),
                 onPressed: () {
                   Geofence.getCurrentLocation().then((coordinate) {
@@ -118,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                         "great got latitude: ${coordinate?.latitude} and longitude: ${coordinate?.longitude}");
                   });
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: Text("Listen to background updates"),
                 onPressed: () {
                   Geofence.startListeningForLocationChanges();
@@ -127,7 +127,7 @@ class _MyAppState extends State<MyApp> {
                         "a significant location change just happened.");
                   });
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: Text("Stop listening to background updates"),
                 onPressed: () {
                   Geofence.stopListeningForLocationChanges();
