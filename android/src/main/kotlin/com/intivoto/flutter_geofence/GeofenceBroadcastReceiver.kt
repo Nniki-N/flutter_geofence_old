@@ -21,13 +21,6 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
             Log.e(TAG, "something went wrong")
             return
         }
-        if (ContextHolder.getApplicationContext() == null) {
-            var c = context
-            if (c.applicationContext != null) {
-                c = context.applicationContext
-            }
-            ContextHolder.setApplicationContext(c)
-        }
 
         // Get the transition type.
         val geofenceTransition = geofencingEvent.geofenceTransition
