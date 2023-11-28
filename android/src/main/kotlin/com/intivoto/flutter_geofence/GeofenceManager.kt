@@ -138,7 +138,6 @@ class GeofenceManager(context: Context,
 
     private val backgroundLocationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
-            locationResult ?: return
             locationResult.lastLocation?.let { backgroundUpdate(it) }
         }
     }
